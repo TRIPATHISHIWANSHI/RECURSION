@@ -1,29 +1,17 @@
-package recursion;
-
-public class Armstrong_Number 
-{
-	static void checkArm(int num) 
-	{
-		int sum=0;
-		int numDigits = String.valueOf(num).length();
+//by stack falling return type
+public class Armstrong_Number {
+	public static int arms(int num) {
 		if(num==0) {
-			return;
+			return 0;
 		}
-		
-		int digits=num%10;
-		sum=sum+(int)Math.pow(digits, numDigits);
-		checkArm(num/10);
-		 if (sum == num) {
-		        System.out.println(num + " IS ARMSTRONG NUMBER");
-		    } else {
-		        System.out.println(num + " IS NOT ARMSTRONG NUMBER");
-		    }
+		int res=arms(num/10);
+		res=(int)(res+Math.pow(num%10, 3));
+		return res;
 	}
+	public static void main(String[] args) {
+		int num =153;
+		System.out.println(num==arms(num)?"Armstrong":"not an Armstrong");
 		
-	
-	public static void main(String[] args) 
-	{
-		checkArm(153);
 	}
 
 }
