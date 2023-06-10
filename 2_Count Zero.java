@@ -1,3 +1,6 @@
+//2. Count Zero in a Given Number
+//Num = 102030
+//Count 0 - 3
 package recursion;
 
 public class count_zero {
