@@ -1,3 +1,10 @@
+//6. Check the Given Number is Armstrong or Not?
+
+// 153
+
+// 1^3 + 5^3 + 3^3 = 153
+
+
 //by stack falling return type
 public class Armstrong_Number {
 	public static int arms(int num) {
