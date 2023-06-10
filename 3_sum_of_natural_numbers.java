@@ -1,3 +1,4 @@
+//3. Sum of N Natural Numbers
 package recursion;
 
 public class sum_of_natural_numbers 
