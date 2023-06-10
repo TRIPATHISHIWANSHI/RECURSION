@@ -1,3 +1,5 @@
+//Power of a Number
+//example-2^5
 package recursion;
 
 public class power 
@@ -12,7 +14,7 @@ public class power
         }
     }
 	public static void main(String[] args) {
-		System.out.println(calculatePower(4,3));
+		System.out.println(calculatePower(2,5));
 		
 	}
 
