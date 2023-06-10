@@ -1,7 +1,6 @@
+//7Check Palindrome String
 package recursion;
-
 import java.util.Scanner;
-
 public class Palindrome 
 {
 	static boolean checkPalindrome(String str, int s, int e) 
