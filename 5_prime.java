@@ -1,3 +1,4 @@
+//5. Check the Given Number is Prime or Not?
 package recursion;
 //by stack falling return type
 public class prime {
