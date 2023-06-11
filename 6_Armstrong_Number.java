@@ -1,38 +1,45 @@
-package recursion;
+import java.util.Scanner;
 
-public class ArmstrongNumberRecursive {
-    public static boolean isArmstrong(int number) {
-        int numDigits = countDigits(number);
-        int sum = calculateSumOfPowers(number, numDigits);
-        
-        return number == sum;
-    }
-    
-    private static int countDigits(int number) {
-        if (number == 0) {
-            return 0;
-        } else {
-            return 1 + countDigits(number / 10);
-        }
-    }
-    
-    private static int calculateSumOfPowers(int number, int numDigits) {
-        if (number == 0) {
-            return 0;
-        }
-        
-        int digit = number % 10;
-        int poweredDigit = (int) Math.pow(digit, numDigits);
-        
-        return poweredDigit + calculateSumOfPowers(number / 10, numDigits);
-    }
-    
-    public static void main(String[] args) {
-        int number = 153;
-        if (isArmstrong(number)) {
-            System.out.println(number + " is an Armstrong number.");
-        } else {
-            System.out.println(number + " is not an Armstrong number.");
-        }
-    }
+public class Number_ArmstrongCheck {
+
+//	1. void return type - during stack building
+	public static void armstrongCheck1(int num, int digits, int res) {
+		if(num == 0) {
+			System.out.println(num==res?"Armstrong Number":"Not an Armstrong number");
+			return;
+		}
+		res-= Math.pow(num%10, digits);	
+		armstrongCheck1(num/10, digits, res);
+	}
+//	2. boolean return type - during stack falling
+	static boolean flag = false;
+	public static boolean armstrongCheck2(int num, int digits, int res) {
+		if(num == 0) {
+			if(res==0)flag = true;
+			return flag;
+		}
+		res -= (int)Math.pow(num%10,digits);
+		armstrongCheck2(num/10, digits, res);
+		return  flag;
+	}
+  
+	public static int digits(int num) {
+		if(num == 0) {
+			return 0;
+		}
+		int dig = digits(num/10);
+		dig+= 1;
+		return dig;
+	}
+	
+	public static void main(String[] args) {
+		Scanner sc = new Scanner(System.in);
+		System.out.println("Enter the number to be checked - ");
+		int num = sc.nextInt();
+		int dig = digits(num);
+		armstrongCheck1(num,dig,num);
+		System.out.println(armstrongCheck2(num, dig, num)?"Armstrong Number":"Not an Armstrong number");
+		sc.close();
+	}
+
 }
