@@ -3,6 +3,16 @@ package recursion;
 import java.util.*;
 public class search_from_last {
 
+	//	1. void return type - during stack building
+	public static void indexfromLast1(int[] arr, int index, int ele, int res) {
+		if(index == arr.length) {
+			System.out.println((res>=0)?"Element found at index :"+res : "Element not found");
+			return;
+		}
+		if(arr[index] == ele)res = index;
+		indexfromLast1(arr, index+1, ele, res);
+	}
+//	2. int return type - during stack falling
 	static int search(int a[],int num,int start) {
 		if(start<0) {
 			return -1;
